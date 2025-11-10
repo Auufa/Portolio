@@ -75,23 +75,37 @@
 
     </div>
 
-    <form action="">
+   <form action="https://formspree.io/f/mrbyddaq" method="POST">
+  <div class="inputBox">
+    <input type="text" name="name" placeholder="your name" required>
+  </div>
 
-        <div class="inputBox">
-            <input type="text" placeholder="your name">
-            <input type="number" placeholder="your number">
-        </div>
+  <div class="inputBox">
+    <input type="email" name="email" placeholder="your email" required>
+  </div>
 
-        <div class="inputBox">
-            <input type="email" placeholder="your email">
-            <input type="text" placeholder="your subject">
-        </div>
+  <textarea name="message" placeholder="your message" cols="30" rows="10" required></textarea>
 
-        <textarea name="" placeholder="your message" id="" cols="30" rows="10"></textarea>
+  <input type="submit" value="send message" class="btn">
+</form>
 
-        <input type="submit" value="send message" class="btn">
-
-    </form>
+<script>
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      alert('✅ Message sent successfully!');
+      form.reset();
+    } else {
+      alert('❌ Failed to send message. Please try again.');
+    }
+  });
+</script>
 
 </div>
 

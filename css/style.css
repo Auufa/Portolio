@@ -672,4 +672,18 @@ section {
     font-size: 50%;
   }
 }
+
+/* Menengahkan React.js dan GitHub di baris bawah */
+.skills .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.skills .box-container .box {
+  flex: 0 1 16rem;
+}
+
+
 /*# sourceMappingURL=style.css.map */
